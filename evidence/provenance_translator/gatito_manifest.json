@@ -1,0 +1,15 @@
+{
+  "original": " /\\_/\\\n( o.o )\n > ^ <",
+  "processed": " /\\_/\\\n( o.o )\n > ^ <",
+  "words": 1,
+  "anchors": [
+    "default"
+  ],
+  "opcodes": 750,
+  "stats": {
+    "words": 1,
+    "evaluations": 35756,
+    "duration_s": 0.9507682,
+    "anchors_used": 1
+  }
+}

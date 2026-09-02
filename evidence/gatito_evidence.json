@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "experiment": "meowbolge gatito (ejemplo insignia)",
+  "fecha": "2026-08-25",
+  "objetivo_ascii": " /\\_/\\\n( o.o )\n > ^ <",
+  "cadena_de_generacion": [
+    "meowbolge v2 (via rapida guiada por estado Tier A/B + verificacion real) resolvio ' ' y '(' directo",
+    "'/' y companyia exceden el alcance estable del proponente en CPython: la bruta necesita >15 min por char",
+    "fallback al arsenal: Malbolge-Translator CLI (--direct --no-lexicon --seed 42)",
+    "backend del translator: paquete malbolge de workspace/malbolge_toolkit via PYTHONPATH",
+    "(el paquete 'malbolge' de site-packages es pyMalbolge/Aiaid 1.0.0, proyecto distinto: NO sirve)"
+  ],
+  "translator_stats": {
+    "evaluations": 35756,
+    "time_s": 0.95,
+    "cells": 750,
+    "anchors": 1,
+    "steps": 652,
+    "halt": "halt_opcode"
+  },
+  "verificacion_triple_backend": {
+    "pyref_canonico": {"status": "HALTED", "steps": 652, "match": true},
+    "oracle_py": {"halt_reason": "halt_opcode", "steps": 652, "match": true},
+    "engine_c": {
+      "status": "HALTED", "steps": 652,
+      "match": true,
+      "nota_wrapper": "stdout texto-Windows: CRLF interno x3 + \\n final anadidos por el host; normalizados para comparar. Bytes de maquina identicos."
+    }
+  },
+  "artifacts_sha256": {
+    "examples/gatito.malbolge": "8322E77C74B3644ED22E8C8F8682D21B83080176961D833BAC3BD3574F37A1DF",
+    "examples/gatito_salida.txt": "CE7C1A3FE7E2D1874DAB8BFFA9BCC1DA004109E636F97D67B7CDD47B90DAAC0F"
+  },
+  "claims": {
+    "gatito_emite_ascii_en_3_backends": "CURRENT",
+    "generacion_pura_meowbolge_para_este_arte": "NOT_DEMONSTRATED (ruta rapida cubre subset; '/' requiere busqueda profunda)"
+  }
+}
