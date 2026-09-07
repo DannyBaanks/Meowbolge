@@ -50,14 +50,16 @@ OP_OUT, OP_ROT, OP_MOVD, OP_CRAZY, OP_NOP, OP_HALT = 5, 39, 40, 62, 68, 81
 #: Operaciones que el generador puede encadenar para mover el acumulador.
 CANDIDATAS = (OP_ROT, OP_CRAZY, OP_MOVD)
 
-#: Ruta del interprete canonico; sobreescrible con MEOWBOLGE_INTERPRETER.
-_INTERPRETE = Path(
-    os.environ.get(
-        "MEOWBOLGE_INTERPRETER",
-        r"C:\Development\ISyCo\workspace\assembly\malbolge"
-        r"\malbolge_interpreter.py",
-    )
-)
+#: Ruta del interprete canonico; configurar con MEOWBOLGE_INTERPRETER.
+_INTERPRETE_ENV = os.environ.get("MEOWBOLGE_INTERPRETER")
+
+
+def _ruta_interprete() -> Path:
+    if not _INTERPRETE_ENV:
+        raise RuntimeError(
+            "Interprete Malbolge no configurado: define la variable de entorno "
+            "MEOWBOLGE_INTERPRETER con la ruta a malbolge_interpreter.py")
+    return Path(_INTERPRETE_ENV)
 
 #: Limites del proponente rapido.
 _PROF_MAX = 20
@@ -66,7 +68,8 @@ _RUTAS_MAX = 500
 
 
 def _cargar_interprete():
-    spec = importlib.util.spec_from_file_location("malbolge_ref", _INTERPRETE)
+    spec = importlib.util.spec_from_file_location("malbolge_ref",
+                                                  _ruta_interprete())
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
