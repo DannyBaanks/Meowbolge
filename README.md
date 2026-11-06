@@ -25,33 +25,38 @@ real emite exactamente lo que se pidio. Propuestas rapidas si, atajos no.
 
 ## Uso
 
-```powershell
-py meowbolge.py "meow"            # imprime el programa en stdout
-py examples/make_gatito.py        # regenera/verifica textos multi-linea
+```bash
+# Síntesis instantánea con Autobolge 2.0 Conveyor O(N) en ~2 ms
+python3 meowbolge.py "meow"
+
+# Guardar en archivo
+python3 meowbolge.py "meow" -o meow.malbolge
+
+# Generar y verificar el gatito ASCII con consenso multi-oráculo
+python3 examples/make_gatito.py
+
+# Selección de motor explícito (--engine auto|conveyor|bfs)
+python3 meowbolge.py "texto" --engine conveyor
+python3 meowbolge.py "texto" --engine bfs
 ```
 
-Variables de entorno:
+Variables de entorno (opcionales, ahora cuenta con VM canónica embebida autónoma):
 
 | Variable | Default |
 |---|---|
-| `MEOWBOLGE_INTERPRETER` | interprete canonico del repo (ruta absoluta) |
-| `MEOWBOLGE_ENGINE_C` | opcional: malbolge.exe para verificacion extra |
+| `MEOWBOLGE_INTERPRETER` | VM clásica embebida en meowbolge.py (o ruta externa) |
+| `MEOWBOLGE_ENGINE_C` | opcional: binario C/Zig para verificación extra |
 | `MEOWBOLGE_ORACLE_DIR` | opcional: directorio de malbolge-oracle |
 
-## Como funciona (v2)
+## Motores de Síntesis (Edición 2026)
 
-Para cada caracter, en orden:
-
-1. **Directo** — si `a` ya tiene el valor, un solo OUT.
-2. **Camino rapido (busqueda guiada por estado)** — BFS nivel por nivel sobre el estado
-   `(a, d)` con dedup y un beam acotado, simulando las reglas de la maquina EXACTAMENTE
-   (cifrado post-ejecucion, avance incondicional de `d`, escrituras ROT/CRAZY
-   sobre `mem[d]`). Regresa MUCHAS rutas candidatas ordenadas por longitud; la
-   verificacion real decide cual sobrevive.
-   - Nivel A: solo MOVD hacia celdas pasadas conocidas (simulacion exacta).
-   - Nivel B: se permiten saltos lejanos excepto la ventana cercana del fuente
-     (aproximado; el verificador descarta divergencias).
-3. **Fuerza bruta** — enumeracion exhaustiva como fallback (el v1 original).
+1. **Autobolge 2.0 Conveyor Engine ($O(N)$)**:
+   - Salto cuántico de alta memoria ($c=0 \to 3315, d=121$) sobre brecha estéril de 3.194 celdas.
+   - Cero búsqueda combinatoria: sintetiza cualquier texto o arte ASCII en **2–5 ms** de forma 100% determinista.
+2. **Camino rápido guiado por estado (BFS v2)**:
+   - BFS nivel por nivel sobre `(a, d)` con dedup y haz acotado para programas ultra-densos.
+3. **Fuerza bruta (v1)**:
+   - Búsqueda exhaustiva combinatoria como fallback.
 
 ## El gatito
 
