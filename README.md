@@ -1,7 +1,13 @@
-# meowbolge 🐈‍⬛
+# meowbolge v2.0 🐈‍⬛ — Generador de Gatos en Malbolge con Síntesis Conveyor O(N)
 
-Generador de programas **Malbolge clasico** que imprimen texto arbitrario.
-La verificacion siempre es contra un interprete real — nunca contra un modelo.
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/DannyBaanks/Meowbolge)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://python.org)
+[![Tests](https://img.shields.io/badge/tests-PASS-brightgreen.svg)]()
+
+Generador de programas **Malbolge clásico** que imprimen texto arbitrario y arte ASCII.
+La verificación siempre es contra un intérprete real — nunca contra un modelo.
+
+Parte de la **Suite Creativa y Generativa v2.0** del ecosistema Malbolge de ISyCo.
 
 ```
  /\_/\
